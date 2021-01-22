@@ -174,13 +174,16 @@ Most frequently occurring data in the data set
 It divides the data into two equal parts (50\% below the median and 50\% above the median)
 
 #### Steps:
-1. Sort the data into ascending order
-2. If even, take the average of the middle two Numbers
-3. If odd, middle number is the median
-
 
 --
-1. Sort the dat 
+1. Sort the data into ascending order
+
+--
+2. If even, take the average of the middle two Numbers
+
+--
+3. If odd, middle number is the median
+
 
 ---
 class: top, left
