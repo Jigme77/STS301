@@ -1,0 +1,195 @@
+---
+title: "Measures of Central Tendency and Variation"
+subtitle: "with applications in R"
+author: "Dr. Jigme Tenzin"
+institute: "College of Natural Resources"
+date: '`r format(Sys.Date())`'
+output:
+  xaringan::moon_reader:
+    chakra: libs/remark-latest.min.js
+    css:
+      - default
+      - css/cnr.css
+      - css/cnr-fonts.css
+      - xaringanthemer.css
+    lib_dir: libs
+    seal: false
+    nature:
+      highlightStyle: googlecode
+      highlightLines: true
+      highlightLanguage: ["r"]
+      countIncrementalSlides: false
+      ratio: "16:9"
+    includes:
+      after_body: [css/insert-logo.html]
+---
+
+
+```{r setup, include = FALSE}
+library(knitr)
+library(ggplot2)
+library(tidyverse)
+library(nhsrtheme)
+library(xaringanExtra)
+library(icon)
+library(reshape)
+library(xaringanthemer)
+xaringanExtra::use_tile_view()
+xaringanExtra::use_share_again()
+xaringanExtra::use_panelset()
+xaringanExtra::use_clipboard()
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,
+  mute_unhighlighted_code = TRUE
+)
+style_panelset_tabs(foreground = "honeydew", background = "seagreen")
+xaringanExtra::use_editable(expires = 1)
+# set default options
+opts_chunk$set(echo = TRUE,
+               fig.width = 7.252,
+               fig.height = 4,
+               dpi = 300
+               )
+
+# uncomment the following lines if you want to use the NHS-R theme colours by default
+# scale_fill_continuous <- partial(scale_fill_nhs, discrete = FALSE)
+# scale_fill_discrete <- partial(scale_fill_nhs, discrete = TRUE)
+# scale_colour_continuous <- partial(scale_colour_nhs, discrete = FALSE)
+# scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
+```
+
+class: title-slide, left, bottom
+
+
+# `r rmarkdown::metadata$title`
+----
+## **`r rmarkdown::metadata$subtitle`**
+### `r rmarkdown::metadata$author`
+### `r rmarkdown::metadata$date`
+
+
+---
+class: center, top
+# About me
+
+<img src ="img/jigme.jpg" width= "200", border-radius=50%>
+
+### Dr. Jigme Tenzin
+
+Department of Animal Science <br>
+College of Natural Resources <br>
+Royal University of Bhutan <br>
+```{r echo=FALSE, fig.show='asis'}
+icon::fontawesome('twitter')
+```
+[tenz_jigme](http://twitter.com/tenz_jigme)
+```{r echo=FALSE, fig.show='asis'}
+icon::fontawesome('envelope')
+```
+[jtenzin.cnr@rub.edu.bt](mailto:jtenzin.cnr@rub.edu.bt)
+```{r echo=FALSE, fig.show='asis'}
+icon::fontawesome('telegram')
+```
+[jigme77](https://t.me/Jigme77)
+
+---
+class: left, top
+
+# Measures of central tendency 
+----
+
+--
+
+.panelset[
+
+.panel[.panel-name[Sample Mean]
+--
+## Mean
+Average value of the data
+## Sample mean
+Mean of the sample values collected
+
+\\(\bar{x} = \frac{X_1 + X_2 + X_3 + ... + X_n} {n}\\)
+
+\\(\bar{x}\\) = Sample mean
+
+n = number of samples
+
+\\(\bar{x} = \frac{\sum X_i} {n}\\)
+
+]
+
+.panel[.panel-name[Population Mean]
+## Population mean
+
+\\(\mu = \frac{X_1 + X_2 + X_3 + ... + X_n} {N} = \frac{\sum X_i} {N}\\)
+
+\\(\mu\\) = Population mean
+
+N = Total number of items in population
+]
+]
+
+---
+class: top, left
+
+# Calculating mean
+### Find mean 
+
+--
+5, 7, 8, 10, 4, 3, 12
+
+\\(\bar{x} = \frac{5 + 7 + 8 + 10 + 4 3 + 12}{7}\\)
+\\(= \frac{49}{7}\\) 
+\\(=7\\)
+
+--
+### Find  the mean of baby weights
+
+6.8, 9.1, 8.7, 7.5, 8.2, 5.4, 6.5, 8.5, 7.3, 6.6, 5.9, 7.3, 9.3, 7.5, 7.8
+
+\\(\bar{x} = \frac{\sum X_i} {n}\\)
+
+\\(= \frac{1124}{15}\\)
+
+\\(= 7.9\\)
+
+
+---
+class: top, left
+
+# Measures of Central Tendency
+----
+
+### Weighted mean
+When each value is not equally important
+
+\\( Weighted \ mean \ = \ \frac{\sum(x_i \ * \ w_i)} {\sum w_i}\\)
+
+
+## Mode 
+Most frequently occurring data in the data set
+
+## Median
+It divides the data into two equal parts (50\% below the median and 50\% above the median)
+
+#### Steps:
+1. Sort the data into ascending order
+2. If even, take the average of the middle two Numbers
+3. If odd, middle number is the median
+
+
+--
+1. Sort the dat 
+
+---
+class: top, left
+
+# Measures of dispersion: variation in your data
+----
+
+### Variation is the spread of your data
+
+\\(\\)
+
+### Ways to measure variation
